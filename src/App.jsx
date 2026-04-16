@@ -1,12 +1,19 @@
 import React from 'react'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import Roots from './component/Roots';
+import Header from './component/Header';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
-  },
+    element: <Roots />,
+    children:[
+      {
+        // index: true,
+        // element: < />
+      },
+]},
 ]);
 
 const App = () => {
