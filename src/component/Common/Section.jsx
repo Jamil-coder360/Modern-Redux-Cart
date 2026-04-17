@@ -1,5 +1,5 @@
 
-const Section = ({children, className="" ,...props}) => {
+const Section = ({children, className="", ...props}) => {
   return (
    <section {...props} className={`${className}`}>
     {children}
