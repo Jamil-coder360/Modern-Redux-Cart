@@ -1,8 +1,13 @@
-import { CarTaxiFront, ShoppingCartIcon } from "lucide-react";
+import { CarTaxiFront, Menu, ShoppingCartIcon, X } from "lucide-react";
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  function handleMenuOpen() {
+    setMenuOpen(!menuOpen);
+  }
   const menuItem = [
     {
       id: 1,
@@ -26,26 +31,61 @@ const Header = () => {
     },
   ];
   return (
-    <header>
-      <nav className="flex items-center justify-between bg-liniear py-8 px-5 shadow-xl">
+    <header className="relative">
+      <nav className="flex items-center justify-between bg-liniear py-8 px-5 shadow-xl ">
+        <div className="block lg:hidden">
+          {menuOpen ? (
+            <X className="text-red-500" onClick={handleMenuOpen} />
+          ) : (
+            <Menu onClick={handleMenuOpen} />
+          )}
+        </div>
         <div>
           <img src="/public/Exclusive.svg" alt="logo" />
         </div>
 
-        <ul className="flex items-center justify-between gap-6">
-          {menuItem.map((item) => {
-            return (
-              <li key={item.id}>
-                <Link
-                  to={item.link}
-                  className="text-xl text-black font-semibold"
-                >
-                  {item.text}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {/* for Dekstop view */}
+        <div className="hidden lg:block">
+          <ul className="flex  items-center justify-between gap-6">
+            {menuItem.map((item) => {
+              return (
+                <li key={item.id}>
+                  <Link
+                    to={item.link}
+                    className="text-xl text-black font-semibold"
+                  >
+                    {item.text}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* for Mobile view */}
+        {menuOpen && (
+          <div
+            className={`absolute block lg:hidden top-21.5 w-50 left-0 bg-white p-5 z-100 shadow-2xl transform transition-all duration-300 ease-in-out  ${menuOpen ? "translate--0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"}`}
+          >
+            <ul className="flex flex-col  items-center justify-between gap-6">
+              {menuItem.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <Link
+                    onClick={handleMenuOpen}
+                      to={item.link}
+                      className="text-xl text-black font-semibold flex flex-col items-center text-center"
+                    >
+                      {item.text}
+                      <hr className="text-yellow-500 w-40 mt-1.25" />
+                      <span className=" " />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
 
         <div className="relative inline-block">
           <ShoppingCartIcon className="w-6 h-6" />
