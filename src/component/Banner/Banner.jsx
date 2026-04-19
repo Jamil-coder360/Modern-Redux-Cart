@@ -18,7 +18,7 @@ const Banner = () => {
   return (
     <Section>
         <div
-          className="relative flex items-center justify-between px-10 py-25 overflow-hidden rounded-b-3xl 
+          className="relative flex flex-col lg:flex-row  items-center justify-between px-10 py-25 overflow-hidden rounded-b-3xl 
         bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500"
         >
           {/* Glossy Overlay */}
@@ -40,7 +40,7 @@ const Banner = () => {
           </div>
 
           {/* Right Image Card */}
-          <div className="relative z-10 w-[320px] h-[400px]">
+          <div className="relative z-10 w-[320px] h-[400px] mt-10 lg:mt-0 rounded-2xl overflow-hidden shadow-2xl">
             <Swiper
               modules={[Navigation, Pagination]}
               navigation
@@ -59,7 +59,7 @@ const Banner = () => {
                       />
 
                       {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/40 opacity-100 lg:opacity-0 group-hover:opacity-100 transition duration-300 flex items-end lg:items-center justify-center">
                         <Button Tagname="a" href="/shop">
                           Shop Now
                         </Button>
