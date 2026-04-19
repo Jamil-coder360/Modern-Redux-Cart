@@ -17,9 +17,8 @@ import "swiper/css/pagination";
 const Banner = () => {
   return (
     <Section>
-      <Container>
         <div
-          className="relative flex items-center justify-between px-10 py-25 overflow-hidden rounded-3xl 
+          className="relative flex items-center justify-between px-10 py-25 overflow-hidden rounded-b-3xl 
         bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500"
         >
           {/* Glossy Overlay */}
@@ -63,6 +62,7 @@ const Banner = () => {
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
                         <Button>Shop Now</Button>
                       </div>
+                     
                     </div>
                   </div>
                 </SwiperSlide>
@@ -70,7 +70,6 @@ const Banner = () => {
             </Swiper>
           </div>
         </div>
-      </Container>
     </Section>
   );
 };
