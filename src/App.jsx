@@ -4,6 +4,8 @@ import { RouterProvider } from "react-router/dom";
 import Roots from './component/Roots';
 import Header from './component/Header';
 import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,16 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />
       },
-]},
+      {
+        path: "products",
+        element: <ProductPage />
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />
+      }
+    ]
+  }
 ]);
 
 const App = () => {

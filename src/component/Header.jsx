@@ -22,7 +22,7 @@ const Header = () => {
     {
       id: 4,
       text: "product",
-      link: "/product",
+      link: "/products",
     },
   ];
   return (

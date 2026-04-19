@@ -60,7 +60,9 @@ const Banner = () => {
 
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <Button>Shop Now</Button>
+                        <Button Tagname="a" href="/shop">
+                          Shop Now
+                        </Button>
                       </div>
                      
                     </div>
