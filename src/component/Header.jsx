@@ -35,14 +35,16 @@ const Header = () => {
       <nav className="flex items-center justify-between bg-liniear py-8 px-5 shadow-xl ">
         <div className="block lg:hidden">
           {menuOpen ? (
-            <X className="text-red-500" onClick={handleMenuOpen} />
+            <X className="text-red-500" size={24} onClick={handleMenuOpen} />
           ) : (
-            <Menu onClick={handleMenuOpen} />
+            <Menu onClick={handleMenuOpen} size={24} />
           )}
         </div>
+        <Link to="/">
         <div>
           <img src="/public/Exclusive.svg" alt="logo" />
         </div>
+        </Link>
 
         {/* for Dekstop view */}
         <div className="hidden lg:block">
