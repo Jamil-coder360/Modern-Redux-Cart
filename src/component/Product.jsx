@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Container from "./Common/Container";
 import Section from "./Common/Section";
 import Button from "./Common/Button";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../features/counter/cartSlice";
 const Product = () => {
   const [data, setData] = useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -38,8 +39,8 @@ const Product = () => {
                     <p className="text-green-600 font-bold">${item.price}</p>
                     <div className="flex">
                       <Button
-                        Tagname="a"
-                        href={`/product/${item.id}`}
+                      onClick={() => dispatch(addToCart(item))}
+                    
                         className="mt-3 w-full"
                       >
                         add to cart

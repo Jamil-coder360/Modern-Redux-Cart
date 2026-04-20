@@ -1,10 +1,12 @@
 import { CarTaxiFront, Menu, ShoppingCartIcon, X } from "lucide-react";
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const item = useSelector((state) => state.cart.value);
   function handleMenuOpen() {
     setMenuOpen(!menuOpen);
   }
@@ -93,7 +95,7 @@ const Header = () => {
           <ShoppingCartIcon className="w-6 h-6" />
 
           <span className="absolute -top-3 -right-2 w-5 h-5 bg-blue-700 text-white text-xs flex items-center justify-center rounded-full">
-            3
+          {item.length}
           </span>
         </div>
       </nav>
